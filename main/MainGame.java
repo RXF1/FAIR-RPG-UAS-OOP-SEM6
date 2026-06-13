@@ -1,4 +1,11 @@
+package main;
 import java.util.Scanner;
+
+import Healer;
+import Karakter;
+import Kesatria;
+import Monster;
+import Penyihir;
 
 public class MainGame {
     public static void main(String[] args) {
