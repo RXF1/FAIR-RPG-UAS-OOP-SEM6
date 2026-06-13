@@ -1,3 +1,4 @@
+package model;
 public class Kesatria extends Karakter {
     private int skillSlot;
 

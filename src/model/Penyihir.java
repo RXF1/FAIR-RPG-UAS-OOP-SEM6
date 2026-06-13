@@ -1,3 +1,4 @@
+package model;
 public class Penyihir extends Karakter {
     private int mana;
     private int maxMana;

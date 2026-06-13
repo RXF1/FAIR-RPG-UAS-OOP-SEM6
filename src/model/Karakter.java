@@ -1,3 +1,5 @@
+package model;
+
 public abstract class Karakter {
     private String nama;
     private int hp;

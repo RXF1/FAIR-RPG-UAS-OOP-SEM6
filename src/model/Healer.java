@@ -1,4 +1,6 @@
-public class Healer extends Karakter {
+package model;
+
+public class Healer extends Karakter implements Penyembuh {
     private int mana;
     private int maxMana;
 
@@ -28,32 +30,38 @@ public class Healer extends Karakter {
             System.out.println("💥 Cahaya suci membakar musuh sebesar " + skillDamage + " damage.");
             setHp(getHp() + pasifHeal);
             System.out.println("💚 Efek Samping Skill: Memulihkan HP pahlawan +" + pasifHeal + ".");
+            // Menggunakan fungsi dari Interface untuk menyembuhkan diri sendiri
+            pulihkanHp(this, 15);
         } else {
             System.out.println("❌ Mana kurang! Terpaksa memakai [BASIC ATTACK].");
             serang(target);
         }
     }
 
-    // FIX: Mengamankan sisa mana agar tidak bocor atau ke-reset saat naik stage
-    public int getMana() {
-        return this.mana;
-    }
-
-    public void setMana(int mana) {
-        this.mana = Math.min(maxMana, mana);
+    // Ini adalah implementasi dari Interface Penyembuh
+    @Override
+    public void pulihkanHp(Karakter target, int jumlahHeal) {
+        target.setHp(target.getHp() + jumlahHeal);
+        System.out.println("💚 [EFEK PENYEMBUHAN] " + target.getNama() + " menerima +" + jumlahHeal + " HP!");
     }
 
     @Override
     public void gunakanHeal() {
         if (mana >= 15) {
             mana -= 15;
-            int jumlahHeal = 60;
-            setHp(getHp() + jumlahHeal);
-            System.out
-                    .println("💚 [HEAL] " + getNama() + " merapal 'Holy Blessing'. Memulihkan +" + jumlahHeal + " HP!");
+            System.out.println("✨ " + getNama() + " merapal 'Holy Blessing'...");
+            pulihkanHp(this, 60); // Memanggil interface
         } else {
             System.out.println("❌ Mana habis! Gagal melakukan penyembuhan.");
         }
+    }
+
+    public int getMana() {
+        return this.mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = Math.min(maxMana, mana);
     }
 
     @Override

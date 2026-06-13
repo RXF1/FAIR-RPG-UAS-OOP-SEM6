@@ -1,4 +1,5 @@
 // Enum digunakan untuk menyimpan daftar pilihan yang tetap/pasti
+package model;
 public enum TipeHero {
     KESATRIA("Bisa menahan serangan dengan perisai"),
     PENYIHIR("Memiliki damage sihir area yang besar"),

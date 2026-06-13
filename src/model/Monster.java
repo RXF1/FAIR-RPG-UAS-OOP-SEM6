@@ -1,3 +1,4 @@
+package model;
 public class Monster extends Karakter {
     private int polaAksi;
 
