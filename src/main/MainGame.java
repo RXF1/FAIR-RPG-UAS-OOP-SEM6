@@ -39,7 +39,7 @@ public class MainGame {
                 break;
         }
 
-        System.out.println("\n⚔️ Kamu memilih jalan sebagai " + heroTerpilih.name() + "!");
+        System.out.println("\n Kamu memilih jalan sebagai " + heroTerpilih.name() + "!");
 
         boolean kalahGame = false;
 
@@ -86,14 +86,14 @@ public class MainGame {
                     isMonsterStunned = true;
                 } else if (aksi == 3) {
                     player.setDefending(true);
-                    System.out.println("🛡️ " + player.getNama() + " merunduk dan bersiap melakukan defense!");
+                    System.out.println(" " + player.getNama() + " merunduk dan bersiap melakukan defense!");
                 } else if (aksi == 4) {
                     player.gunakanHeal();
                 }
 
                 if (!musuh.isAlive()) {
                     musuhTumbang = true;
-                    System.out.println("\n💀 " + musuh.getNama() + " berhasil dihancurkan!");
+                    System.out.println("\n " + musuh.getNama() + " berhasil dihancurkan!");
                     break;
                 }
 
@@ -107,14 +107,14 @@ public class MainGame {
                     int damageTerguncang = damageAsliKarakter / 2;
                     player.setHp(player.getHp() - damageTerguncang);
                     System.out.println("💫 Efek Guncangan Skill: Serangan " + musuh.getNama() + " limbung!");
-                    System.out.println("💥 " + player.getNama() + " hanya menerima " + damageTerguncang + " damage.");
+                    System.out.println(" " + player.getNama() + " hanya menerima " + damageTerguncang + " damage.");
                 } else {
                     musuh.serang(player);
                 }
 
                 if (!musuh.isAlive()) {
                     musuhTumbang = true;
-                    System.out.println("\n💀 " + musuh.getNama() + " tewas akibat Counter Attack-mu!");
+                    System.out.println("\n " + musuh.getNama() + " tewas akibat Counter Attack-mu!");
                     break;
                 }
 
@@ -153,7 +153,7 @@ public class MainGame {
         if (!kalahGame && player.isAlive()) {
             System.out.println("🏆 KEMENANGAN MUTLAK! Mekanik Strategimu Luar Biasa Jago!");
         } else {
-            System.out.println("💀 KAMU GAGAL! Perjalanan pahlawanmu harus terhenti.");
+            System.out.println(" KAMU GAGAL! Perjalanan pahlawanmu harus terhenti.");
         }
         System.out.println("========================================");
         input.close();

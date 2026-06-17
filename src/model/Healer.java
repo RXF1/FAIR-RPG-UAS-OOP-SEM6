@@ -14,7 +14,7 @@ public class Healer extends Karakter implements Penyembuh {
     public void serang(Karakter target) {
         System.out.println("🔱 [BASIC ATTACK] " + getNama() + " menusuk tongkat ke " + target.getNama());
         target.setHp(target.getHp() - this.getDamage());
-        System.out.println("💥 Menghasilkan " + this.getDamage() + " damage.");
+        System.out.println(" Menghasilkan " + this.getDamage() + " damage.");
     }
 
     @Override
@@ -25,11 +25,11 @@ public class Healer extends Karakter implements Penyembuh {
             this.mana -= 20;
             int skillDamage = (int) (this.getDamage() * 3.0);
             int pasifHeal = 15;
-            System.out.println("☀️ [SKILL: Judgment Light] " + getNama() + " mengeksekusi " + target.getNama() + "!");
+            System.out.println(" [SKILL: Judgment Light] " + getNama() + " mengeksekusi " + target.getNama() + "!");
             target.setHp(target.getHp() - skillDamage);
-            System.out.println("💥 Cahaya suci membakar musuh sebesar " + skillDamage + " damage.");
+            System.out.println(" Cahaya suci membakar musuh sebesar " + skillDamage + " damage.");
             setHp(getHp() + pasifHeal);
-            System.out.println("💚 Efek Samping Skill: Memulihkan HP pahlawan +" + pasifHeal + ".");
+            System.out.println(" Efek Samping Skill: Memulihkan HP pahlawan +" + pasifHeal + ".");
             // Menggunakan fungsi dari Interface untuk menyembuhkan diri sendiri
             pulihkanHp(this, 15);
         } else {
@@ -42,7 +42,7 @@ public class Healer extends Karakter implements Penyembuh {
     @Override
     public void pulihkanHp(Karakter target, int jumlahHeal) {
         target.setHp(target.getHp() + jumlahHeal);
-        System.out.println("💚 [EFEK PENYEMBUHAN] " + target.getNama() + " menerima +" + jumlahHeal + " HP!");
+        System.out.println(" [EFEK PENYEMBUHAN] " + target.getNama() + " menerima +" + jumlahHeal + " HP!");
     }
 
     @Override

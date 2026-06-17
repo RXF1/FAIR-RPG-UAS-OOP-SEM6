@@ -13,11 +13,11 @@ public class Monster extends Karakter {
     public void siapkanTindakanRondeBerikutnya(int ronde) {
         if (ronde % 2 == 0) {
             this.polaAksi = 2;
-            System.out.println("⚠️ INDIKATOR BAHAYA: " + getNama()
+            System.out.println(" INDIKATOR BAHAYA: " + getNama()
                     + " mengumpulkan tenaga! Dia akan meluncurkan [SERANGAN AMUKAN] (2x Damage)!");
         } else {
             this.polaAksi = 1;
-            System.out.println("📢 INDIKATOR MUSUH: " + getNama() + " bersiap melakukan serangan biasa.");
+            System.out.println(" INDIKATOR MUSUH: " + getNama() + " bersiap melakukan serangan biasa.");
         }
     }
 
@@ -31,20 +31,20 @@ public class Monster extends Karakter {
         if (target.isDefending()) {
             int damageTereduksi = damageAsli / 3;
             target.setHp(target.getHp() - damageTereduksi);
-            System.out.println("🛡️ [DEFENSE SUCCESS] Pertahanan sempurna! " + target.getNama() + " meredam serangan.");
-            System.out.println("💥 " + target.getNama() + " hanya menerima " + damageTereduksi + " damage.");
+            System.out.println(" [DEFENSE SUCCESS] Pertahanan sempurna! " + target.getNama() + " meredam serangan.");
+            System.out.println(" " + target.getNama() + " hanya menerima " + damageTereduksi + " damage.");
 
             // COUNTER ATTACK MECHANIC
             int counterDamage = target.getDamage();
             this.setHp(this.getHp() - counterDamage);
-            System.out.println("⚔️ [COUNTER ATTACK] Serangan balik instan! Menghasilkan " + counterDamage
+            System.out.println(" [COUNTER ATTACK] Serangan balik instan! Menghasilkan " + counterDamage
                     + " damage ke " + getNama() + "!");
 
             target.terimaRewardDefense();
         } else {
             target.setHp(target.getHp() - damageAsli);
             System.out.println("👹 [MONSTER ATTACK] " + getNama() + " menghantam telak!");
-            System.out.println("💥 " + target.getNama() + " menerima damage penuh sebesar " + damageAsli + " damage!");
+            System.out.println(" " + target.getNama() + " menerima damage penuh sebesar " + damageAsli + " damage!");
         }
     }
 

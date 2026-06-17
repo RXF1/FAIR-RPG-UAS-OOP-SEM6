@@ -8,12 +8,15 @@ public class Penyihir extends Karakter {
         this.mana = 30;
         this.maxMana = 60;
     }
+    public int getMana() {
+        return this.mana;
+    }
 
     @Override
     public void serang(Karakter target) {
         System.out.println("🪄 [BASIC ATTACK] " + getNama() + " menembakkan sihir kecil ke " + target.getNama());
         target.setHp(target.getHp() - this.getDamage());
-        System.out.println("💥 Menghasilkan " + this.getDamage() + " damage.");
+        System.out.println(" Menghasilkan " + this.getDamage() + " damage.");
     }
 
     @Override
@@ -24,7 +27,7 @@ public class Penyihir extends Karakter {
             // Stage 3
             int skillDamage = (int) (this.getDamage() * 4.2);
             System.out.println(
-                    "☄️ [SKILL: Meteor Strike] " + getNama() + " merapal mantra raksasa ke " + target.getNama() + "!");
+                    " [SKILL: Meteor Strike] " + getNama() + " merapal mantra raksasa ke " + target.getNama() + "!");
             target.setHp(target.getHp() - skillDamage);
             System.out.println("🔥 BOOM! Ledakan masif menghasilkan " + skillDamage + " damage sihir hancur.");
         } else {

@@ -7,11 +7,15 @@ public class Kesatria extends Karakter {
         this.skillSlot = 1;
     }
 
+    public int getSkillSlot() {
+        return this.skillSlot;
+    }
+
     @Override
     public void serang(Karakter target) {
-        System.out.println("⚔️ [BASIC ATTACK] " + getNama() + " menebas " + target.getNama());
+        System.out.println(" [BASIC ATTACK] " + getNama() + " menebas " + target.getNama());
         target.setHp(target.getHp() - this.getDamage());
-        System.out.println("💥 Menghasilkan " + this.getDamage() + " damage.");
+        System.out.println(" Menghasilkan " + this.getDamage() + " damage.");
     }
 
     @Override
@@ -19,9 +23,9 @@ public class Kesatria extends Karakter {
         if (skillSlot > 0) {
             skillSlot--;
             int skillDamage = this.getDamage() * 2;
-            System.out.println("🛡️ [SKILL: Shield Slam] " + getNama() + " menghantam " + target.getNama() + "!");
+            System.out.println(" [SKILL: Shield Slam] " + getNama() + " menghantam " + target.getNama() + "!");
             target.setHp(target.getHp() - skillDamage);
-            System.out.println("💥 DAMAGE KRITIKAL! Menghasilkan " + skillDamage + " damage.");
+            System.out.println(" DAMAGE KRITIKAL! Menghasilkan " + skillDamage + " damage.");
         } else {
             System.out.println("❌ Slot skill habis! Terpaksa memakai [BASIC ATTACK].");
             serang(target);
